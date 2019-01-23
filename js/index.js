@@ -3,8 +3,15 @@ window.onscroll = function (e) {
     var scrollTop = $(window).scrollTop();
     if (scrollTop > 170) {
         document.getElementById("navigation").style.background="#270c27";
-    } else {
+    } else if (!toggled) {
         document.getElementById("navigation").style.background="";
+    }
+
+    let bionav = document.getElementById("bio-nav");
+    if (scrollTop > 338) {
+        bionav.style.top = scrollTop-322 + 'px';
+    } else {
+        bionav.style.top = '';
     }
 }
 
@@ -40,4 +47,22 @@ function togglenav() {
     }
 
     toggled = !toggled;
+}
+
+$( document ).ready(function() {
+    $("nav").find("a").click(function(e) {
+        e.preventDefault();
+        var section = $(this).attr("href");
+        $("html, body").animate({
+            scrollTop: $(section).offset().top,
+            duration: 400
+        });
+    });
+});
+
+function scrollTo(evt) {
+    var section = document.getElementById(evt.value);
+    $("html, body").animate({
+        scrollTop: $(section).offset().top
+    });
 }
