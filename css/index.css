@@ -56,6 +56,7 @@ body {
     background-color: #a6a6a6;
     overflow: hidden;
     border-radius: 50%;
+    /* border: 2px solid #cccccc; */
 }
 
 .main {
@@ -111,10 +112,11 @@ body {
 .bio-nav {
     position: absolute;
     width: 9.2em;
-    left: -1em;
-    border: 1px solid #cccccc;
+    left: -1.2em;
     margin-top: 0.6em;
+    border: 1px solid #cccccc;
     border-radius: 5px;
+    background: white;
     padding: 0.8em;
 }
 
@@ -216,7 +218,7 @@ body {
 
 .footer {
     position: relative;
-    height: 3.6em;
+    height: 3.2em;
     width: 100%;
     background: #0d0d0d; 
 }
@@ -238,7 +240,7 @@ body {
 .footer h3 {
     margin: 0;
     color: #808080; 
-    font-size:16px;
+    font-size:14px;
     font-weight:350;
 }
 
