@@ -285,6 +285,8 @@ a.anchor {
     }
 
     .name {
+        left: 8.8em;
+        top: -1em;
         word-wrap: break-word;
         width: auto;
     }
