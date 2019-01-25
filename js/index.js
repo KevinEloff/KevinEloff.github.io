@@ -33,7 +33,7 @@ function togglenav() {
         setTimeout(function (){
             navOptions.style.opacity = '1';
             navOptions.style.transition = '200ms';
-          }, 10);
+        }, 10);
     } else {
         if (scrollTop > 170) {
             document.getElementById("navigation").style.background="#270c27";
@@ -50,19 +50,116 @@ function togglenav() {
 }
 
 $( document ).ready(function() {
-    $("nav").find("a").click(function(e) {
-        e.preventDefault();
-        var section = $(this).attr("href");
-        $("html, body").animate({
-            scrollTop: $(section).offset().top,
-            duration: 400
-        });
-    });
+    var navLabels = document.getElementsByClassName("nav-labels")
+    if (window.location.hash != "") { //Go to selected hash page
+        var validRef = false;
+        for (let i = 0; i < navLabels.length; i++) {
+            navLabels[i].style.color = "";
+            if (navLabels[i].text.toLowerCase() == window.location.hash.split("#")[1]) {
+                validRef = true;
+                openContent({target: navLabels[i]});
+            }   
+        }
+        if (!validRef) { //Reset to home page
+            window.location.href = window.location.href.split('#')[0]
+            for (let i = 0; i < navLabels.length; i++) if (navLabels[i].text == "Home") {
+                openContent({target: navLabels[i]});
+            }
+        }
+    } else { //Display home page as default
+        for (let i = 0; i < navLabels.length; i++) if (navLabels[i].text == "Home") {
+                openContent({target: navLabels[i]});
+        }
+    }
 });
 
-function scrollTo(evt) {
-    var section = document.getElementById(evt.value);
-    $("html, body").animate({
-        scrollTop: $(section).offset().top
-    });
+
+var content;
+function openContent(evt) {
+    // while ($(window).scrollTop()>300);
+    var navLabels = document.getElementsByClassName("nav-labels")
+    for (let i = 0; i < navLabels.length; i++)
+        navLabels[i].style.color = "";
+    evt.target.style.color = "#f2f2f2";
+    
+    if (content != evt.target.text) {
+        switch (evt.target.text) {
+            case 'Home':
+                var projects = document.getElementsByClassName("projects");
+                for (let i = 0; i < projects.length; i++){
+                    projects[i].style.opacity = '0';
+                    projects[i].style.transition = '150ms';
+                }
+                var home = document.getElementsByClassName("home");
+                for (let i = 0; i < home.length; i++) {
+                    home[i].style.opacity = '0';
+                    home[i].style.display = 'block';
+                    home[i].style.transition = '0ms';
+                }
+
+                setTimeout(function (){
+                    for (let i = 0; i < home.length; i++) {
+                        home[i].style.opacity = '1';
+                        home[i].style.transition = '150ms';
+                    }
+                    
+                    for (let i = 0; i < projects.length; i++) {
+                        projects[i].style.display = 'none';
+                        projects[i].style.transition = '0ms';
+                    }
+                    
+                    setTimeout(function (){
+                        for (let i = 0; i < home.length; i++) {
+                            home[i].style.transition = '0ms';
+                        }
+                        window.scrollTo({
+                            top: 0,
+                            left: 0,
+                            behavior: 'smooth'
+                        });
+                    }, 150);
+                }, 150);
+
+                break;
+            case 'Projects':
+                var home = document.getElementsByClassName("home");
+                for (let i = 0; i < home.length; i++){
+                    home[i].style.opacity = '0';
+                    home[i].style.transition = '150ms';
+                }
+                var projects = document.getElementsByClassName("projects");
+                for (let i = 0; i < projects.length; i++) {
+                    projects[i].style.opacity = '0';
+                    projects[i].style.display = 'block';
+                    projects[i].style.transition = '0ms';
+                }
+
+                setTimeout(function (){
+                    for (let i = 0; i < projects.length; i++) {
+                        projects[i].style.opacity = '1';
+                        projects[i].style.transition = '150ms';
+                    }
+                    
+                    for (let i = 0; i < home.length; i++) {
+                        home[i].style.display = 'none';
+                        home[i].style.transition = '0ms';
+                    }
+                    
+                    setTimeout(function (){
+                        for (let i = 0; i < projects.length; i++) {
+                            projects[i].style.transition = '0ms';
+                        }
+                        window.scrollTo({
+                            top: 0,
+                            left: 0,
+                            behavior: 'smooth'
+                        });
+                    }, 150);
+                }, 150);
+
+                break;
+        }
+    }
+
+    content = evt.target.text;
 }

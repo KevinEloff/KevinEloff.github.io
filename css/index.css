@@ -5,7 +5,7 @@ html {
 body {
     margin: 0;
     padding: 0;
-    background: #000000;
+    background: #0d0d0d;
     
     font: 400 16px/1.5 "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-feature-settings: "kern" 1;
@@ -94,16 +94,16 @@ body {
     font-weight:450;
 }
 
-.bio h3 {
+.bio h3, .proj-content h3{
     margin: 0;
     font-size: 18px;
     font-weight:450;
 }
 
-.bio li, .bio ul, .bio table, .bio td, {
+/* .bio li, .bio ul, .bio table, .bio td {
     margin: 0;
     padding: 0;
-}
+} */
 
 .bio ul {
     margin-top: 0em;
@@ -206,6 +206,7 @@ body {
     font-weight:300;
     transition:200ms;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .nav-content a:hover {
@@ -261,6 +262,49 @@ a.anchor {
     visibility: hidden;
 }
 
+.home {
+    /* transition: 300ms; */
+    display: none;
+}
+
+.projects {
+    /* transition: 300ms; */
+    display: none;
+}
+
+.proj-content {
+    margin-left: 11em;
+    position: relative;
+    max-width: 40em;
+}
+
+.proj-content h2 {
+    margin: 0;
+    margin-bottom: 0.5em;
+    font-size: 22px;
+    font-weight:450;
+}
+.proj-box {
+    position: relative;
+    margin: 0;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    background: white;
+    padding: 0.8em;
+    width: 95%;
+}
+
+.git-link {
+    position: absolute;
+    top: 0.2em;
+    right: 0.4em;
+    font-size: 30px;
+}
+
+.git-link:hover {
+    color: #0099ff; 
+}
+
 @media screen and (max-width: 600px) {
     .mini-bio {
         width: 90%;
@@ -294,6 +338,10 @@ a.anchor {
     .nav-open {
         display: block;
     }
+
+    .hide-mobile {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 1024px) {
@@ -301,7 +349,7 @@ a.anchor {
         display: none;
     }
 
-    .bio {
+    .bio, .proj-content {
         margin-left: 0;
     }
 }
