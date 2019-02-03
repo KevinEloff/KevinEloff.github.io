@@ -226,4 +226,7 @@ function openContent(evt) {
     }
 
     content = evt.target.text;
+
+    if (toggled) 
+        togglenav();
 }
