@@ -272,6 +272,10 @@ a.anchor {
     display: none;
 }
 
+.contact {
+    display: none;
+}
+
 .proj-content {
     margin-left: 11em;
     position: relative;
@@ -312,6 +316,12 @@ a.anchor {
 
 .git-link:hover {
     color: #0099ff; 
+}
+
+.contact-content {
+    margin-left: 11em;
+    position: relative;
+    max-width: 40em;
 }
 
 @media screen and (max-width: 600px) {

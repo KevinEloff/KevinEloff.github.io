@@ -86,11 +86,16 @@ function openContent(evt) {
         switch (evt.target.text) {
             case 'Home':
                 var projects = document.getElementsByClassName("projects");
+                var contact = document.getElementsByClassName("contact");
+                var home = document.getElementsByClassName("home");
                 for (let i = 0; i < projects.length; i++){
                     projects[i].style.opacity = '0';
                     projects[i].style.transition = '150ms';
                 }
-                var home = document.getElementsByClassName("home");
+                for (let i = 0; i < contact.length; i++){
+                    contact[i].style.opacity = '0';
+                    contact[i].style.transition = '150ms';
+                }
                 for (let i = 0; i < home.length; i++) {
                     home[i].style.opacity = '0';
                     home[i].style.display = 'block';
@@ -106,6 +111,10 @@ function openContent(evt) {
                     for (let i = 0; i < projects.length; i++) {
                         projects[i].style.display = 'none';
                         projects[i].style.transition = '0ms';
+                    }
+                    for (let i = 0; i < contact.length; i++) {
+                        contact[i].style.display = 'none';
+                        contact[i].style.transition = '0ms';
                     }
                     
                     setTimeout(function (){
@@ -123,11 +132,16 @@ function openContent(evt) {
                 break;
             case 'Projects':
                 var home = document.getElementsByClassName("home");
+                var contact = document.getElementsByClassName("contact");
+                var projects = document.getElementsByClassName("projects");
                 for (let i = 0; i < home.length; i++){
                     home[i].style.opacity = '0';
                     home[i].style.transition = '150ms';
                 }
-                var projects = document.getElementsByClassName("projects");
+                for (let i = 0; i < contact.length; i++){
+                    contact[i].style.opacity = '0';
+                    contact[i].style.transition = '150ms';
+                }
                 for (let i = 0; i < projects.length; i++) {
                     projects[i].style.opacity = '0';
                     projects[i].style.display = 'block';
@@ -144,6 +158,10 @@ function openContent(evt) {
                         home[i].style.display = 'none';
                         home[i].style.transition = '0ms';
                     }
+                    for (let i = 0; i < contact.length; i++) {
+                        contact[i].style.display = 'none';
+                        contact[i].style.transition = '0ms';
+                    }
                     
                     setTimeout(function (){
                         for (let i = 0; i < projects.length; i++) {
@@ -157,6 +175,52 @@ function openContent(evt) {
                     }, 150);
                 }, 150);
 
+                break;
+            case 'Contact':
+                var home = document.getElementsByClassName("home");
+                var contact = document.getElementsByClassName("contact");
+                var projects = document.getElementsByClassName("projects");
+                for (let i = 0; i < home.length; i++){
+                    home[i].style.opacity = '0';
+                    home[i].style.transition = '150ms';
+                }
+                for (let i = 0; i < projects.length; i++){
+                    projects[i].style.opacity = '0';
+                    projects[i].style.transition = '150ms';
+                }
+                for (let i = 0; i < contact.length; i++) {
+                    contact[i].style.opacity = '0';
+                    contact[i].style.display = 'block';
+                    contact[i].style.transition = '0ms';
+                }
+
+                setTimeout(function (){
+                    for (let i = 0; i < contact.length; i++) {
+                        contact[i].style.opacity = '1';
+                        contact[i].style.transition = '150ms';
+                    }
+                    
+                    for (let i = 0; i < home.length; i++) {
+                        home[i].style.display = 'none';
+                        home[i].style.transition = '0ms';
+                    }
+                    for (let i = 0; i < projects.length; i++) {
+                        projects[i].style.display = 'none';
+                        projects[i].style.transition = '0ms';
+                    }
+                    
+                    setTimeout(function (){
+                        for (let i = 0; i < contact.length; i++) {
+                            contact[i].style.transition = '0ms';
+                        }
+                        window.scrollTo({
+                            top: 0,
+                            left: 0,
+                            behavior: 'smooth'
+                        });
+                    }, 150);
+                }, 150);
+                
                 break;
         }
     }
