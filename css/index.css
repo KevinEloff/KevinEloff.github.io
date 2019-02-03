@@ -319,7 +319,7 @@ a.anchor {
 }
 
 .contact-content {
-    margin-left: 11em;
+    margin-left: 10em;
     position: relative;
     max-width: 40em;
 }
@@ -368,7 +368,7 @@ a.anchor {
         display: none;
     }
 
-    .bio, .proj-content {
+    .bio, .proj-content, .contact-content {
         margin-left: 0;
     }
 }
