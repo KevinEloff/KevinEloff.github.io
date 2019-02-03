@@ -284,20 +284,29 @@ a.anchor {
     font-size: 22px;
     font-weight:450;
 }
+
 .proj-box {
     position: relative;
     margin: 0;
     border: 1px solid #cccccc;
     border-radius: 5px;
     background: white;
-    padding: 0.8em;
+    padding: 1.6em;
     width: 95%;
+    transition: 200ms;
+}
+
+.proj-box:hover {
+    box-shadow: 8px 8px 2px 1px rgba(0, 0, 255, .15);
+    margin: -0.3em;
+    /* padding: 0.01em; */
+    margin-bottom: 0.3em;
 }
 
 .git-link {
     position: absolute;
-    top: 0.2em;
-    right: 0.4em;
+    top: 0.5em;
+    right: 0.7em;
     font-size: 30px;
 }
 
