@@ -23,7 +23,6 @@ body {
 
 .cover {
     position: relative;
-    /* background-image: url("https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/394310/80824ca68c16f57fec97e144c6518cc23ff4820b.jpg"); */
     background-color: #000000;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/394310/80824ca68c16f57fec97e144c6518cc23ff4820b.jpg");
     object-fit: contain;
